@@ -1,12 +1,11 @@
 body{
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(44, 8, 6);
 }
 .slider{
     margin: 0 auto;
@@ -114,4 +113,28 @@ body{
 }
 #radio04:checked ~ .navigation-auto .auto-btn4{
     background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
+.carta-aberta{
+    color: #ffffffdc;
+    max-width: 700px;
+    font-size: 1.1em;
+    text-indent: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    margin: 0 15px;
+    
+}
+
+.texto-principal{
+color: #fff;
+text-align: center;
 }
