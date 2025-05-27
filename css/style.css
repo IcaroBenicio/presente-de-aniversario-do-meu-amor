@@ -6,11 +6,11 @@ body{
     justify-content: center;
     align-items: center;
     background-color: rgb(44, 8, 6);
-    background-image: url(../img/Imagem\ do\ WhatsApp\ de\ 2025-05-19\ à\(s\)\ 17.50.53_09b28108.jpg);
+    background-image: url(../img/gato-do-meu-amor.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center;
+    background-position: center center;
 }
 .slider{
     margin: 0 auto;
@@ -123,6 +123,14 @@ body{
 
 
 
+
+
+
+
+.carta{
+    background-color: rgba(0, 0, 0, 0.301);
+    padding: 5px;
+}
 
 
 .carta p.carta-aberta:not(:last-child){
