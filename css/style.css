@@ -6,6 +6,11 @@ body{
     justify-content: center;
     align-items: center;
     background-color: rgb(44, 8, 6);
+    background-image: url(../img/Imagem\ do\ WhatsApp\ de\ 2025-05-19\ à\(s\)\ 17.50.53_09b28108.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
 }
 .slider{
     margin: 0 auto;
