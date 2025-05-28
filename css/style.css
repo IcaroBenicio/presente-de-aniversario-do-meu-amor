@@ -129,7 +129,10 @@ body{
 
 .carta{
     background-color: rgba(0, 0, 0, 0.301);
+    border-radius: 4PX;
     padding: 5px;
+    padding-top: 30px;
+    text-shadow: 1px 1px 2px black;
 }
 
 
@@ -139,7 +142,7 @@ body{
 
 
 .carta-aberta{
-    color: #ffffffdc;
+    color: hsla(0, 0%, 100%, 0.904);
     max-width: 700px;
     font-size: 1.1em;
     text-indent: 30px;
@@ -153,7 +156,8 @@ body{
 }
 
 .texto-principal{
-color: #fff;
+color: #ffffff;
+text-shadow: 1px 1px 2px black;
 text-align: center;
 margin-bottom: 70px;
 margin-top: 50px;
