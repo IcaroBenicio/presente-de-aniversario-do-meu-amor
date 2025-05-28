@@ -170,6 +170,15 @@ padding-right: 15px;
 
 
 .musica{
-    width: 70%;
+    width: 97%;
     margin-bottom: 25px;
+}
+
+
+
+
+@media (min-width: 1024px) {
+  .musica{
+    width: 700px;
+  }
 }
