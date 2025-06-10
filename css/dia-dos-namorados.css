@@ -28,23 +28,25 @@ body {
 .pequeno-texto{
     margin-top: 70px;
     max-width: 800px;
-    background-color: #d62828;
+    background-color:  #f8ad9d;
+    border-radius: 5px;
 }
 
 .pequeno-texto p{
     text-align: justify;
     padding: 15px;
     font-family: 'Brush Script MT', cursive;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 
 .pequeno-texto p:last-child{
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 
 
 .titulo-galeria{
   font-family: 'Brush Script MT', cursive;
+  margin-top: 60px;
 }
 
 
@@ -379,11 +381,72 @@ body {
 
 
 
-#timer {
-      font-size: 2rem;
-      background: #f0f0f0;
-      display: inline-block;
-      padding: 20px;
+.texto-relogio{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.texto-texto-relogio{
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.clock {
+      display: flex;
+      gap: clamp(10px, 3vw, 30px);
+      background: rgba(0, 0, 0, 0.1);
+      padding: clamp(15px, 4vw, 40px);
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      max-width: 100%;
+    }
+
+    .unit {
+      background: #111;
+      color: #fff;
+      padding: clamp(15px, 3vw, 30px) clamp(20px, 5vw, 35px);
       border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+      text-align: center;
+      flex: 1 1 auto;
+      min-width: 70px;
+      max-width: 130px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .number {
+      font-size: clamp(1.5rem, 5vw, 4rem);
+      font-weight: bold;
+      display: block;
+      animation: slide 0.6s ease-in-out;
+    }
+
+    .label {
+      font-size: clamp(0.6rem, 1.5vw, 1rem);
+      letter-spacing: 1px;
+      color: #aaa;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .unit {
+        padding: 10px 12px;
+        max-width: 90px;
+      }
     }

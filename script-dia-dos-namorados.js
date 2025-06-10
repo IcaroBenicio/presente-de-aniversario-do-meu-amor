@@ -32,39 +32,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-// Data final (ex: 10 de junho de 2029, às 00:00)
-  const dataFutura = new Date("2029-05-28T00:00:00");
+ const dataFutura = new Date("2029-06-10T00:00:00");
 
   function atualizarContagem() {
     const agora = new Date();
     let diff = dataFutura - agora;
 
     if (diff <= 0) {
-      document.getElementById("timer").innerHTML = "Tempo esgotado!";
+      document.getElementById("horas").textContent = "00";
+      document.getElementById("minutos").textContent = "00";
+      document.getElementById("segundos").textContent = "00";
       return;
     }
 
-    // Calcula os componentes do tempo
-    const segundosTotal = Math.floor(diff / 1000);
+    const totalSegundos = Math.floor(diff / 1000);
+    const totalHoras = Math.floor(totalSegundos / 3600);
+    const minutos = Math.floor((totalSegundos % 3600) / 60);
+    const segundos = totalSegundos % 60;
 
-    const anos = Math.floor(segundosTotal / (3600 * 24 * 365.25));
-    const meses = Math.floor((segundosTotal % (3600 * 24 * 365.25)) / (3600 * 24 * 30.44));
-    const dias = Math.floor((segundosTotal % (3600 * 24 * 30.44)) / (3600 * 24));
-    const horas = Math.floor((segundosTotal % (3600 * 24)) / 3600);
-    const minutos = Math.floor((segundosTotal % 3600) / 60);
-    const segundos = segundosTotal % 60;
-
-    document.getElementById("timer").innerHTML = `
-      ${anos} ano(s), ${meses} mês(es), ${dias} dia(s),
-      ${horas.toString().padStart(2, '0')}h :
-      ${minutos.toString().padStart(2, '0')}m :
-      ${segundos.toString().padStart(2, '0')}s
-    `;
+    atualizarElemento("horas", totalHoras);
+    atualizarElemento("minutos", minutos);
+    atualizarElemento("segundos", segundos);
   }
 
-  // Atualiza a cada segundo
+  function atualizarElemento(id, novoValor) {
+    const el = document.getElementById(id);
+    const atual = el.textContent;
+    const novoTexto = novoValor.toString().padStart(2, "0");
+
+    if (atual !== novoTexto) {
+      el.textContent = novoTexto;
+      el.classList.remove("number");
+      void el.offsetWidth;
+      el.classList.add("number");
+    }
+  }
+
   atualizarContagem();
   setInterval(atualizarContagem, 1000);
