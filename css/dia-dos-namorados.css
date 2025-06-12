@@ -33,6 +33,7 @@ body {
 }
 
 .pequeno-texto p{
+  text-indent: 40px;
     text-align: justify;
     padding: 15px;
     font-family: 'Brush Script MT', cursive;
