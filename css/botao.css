@@ -15,6 +15,7 @@
     }
 
     .supreme {
+      margin-top: 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -110,6 +111,8 @@
     }
     .botao:hover{
        background-color: rgba(255, 20, 145, 0.37);
+       color: #fff;
+       cursor: pointer;
     }
     .caixa-texto{
       border-radius: 15px;
