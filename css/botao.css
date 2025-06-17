@@ -61,10 +61,10 @@
     .numero {
       font-size: clamp(1.2rem, 5vw, 2.5rem);
       font-weight: bold;
-      background: #c06cda;
+       background-color: rgba(255, 20, 145, 0.37);
       padding: 10px 16px;
       border-radius: 5px;
-      box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 -4px 0 rgba(8, 8, 8, 0.12);
       animation: flip 0.7s ease-in-out;
       color: #fff;
       line-height: 1;
@@ -104,9 +104,29 @@
       max-width: 260px;
       font-size: 1em;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+       background: rgba(255, 255, 255, 0.8);
+      color: #1f1f1f;
+      border: none;
     }
     .botao:hover{
-      background-color: #c06cda;
+       background-color: rgba(255, 20, 145, 0.37);
+    }
+    .caixa-texto{
+      border-radius: 15px;
+      background-color: #fff;
+      padding: 10px; 
+      margin-top: 200px;
+    }
+    .texto{
+      text-indent: 20px;
+      color: #070707;
+      text-align: justify;
+      font-size: 1em;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .div-img{
+      width: 100%;
+      height: 100%;
     }
 
     @media (min-width: 500px) {
