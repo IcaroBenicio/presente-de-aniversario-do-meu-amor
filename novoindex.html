@@ -81,11 +81,125 @@
    .btn-yellow:hover {
     box-shadow: 0 0 8px #f59e0b;
    }
+   /* Countdown styles */
+   .supreme {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgb(214 51 108 / 0.3);
+    text-align: center;
+    color: #d6336c;
+    font-weight: 700;
+   }
+   .contador {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0 1.5rem;
+    flex-wrap: wrap;
+   }
+   .tempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+   }
+   .numero {
+    font-size: 3rem;
+    font-weight: 900;
+    background: #f59e0b;
+    color: #fff;
+    width: 4.5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: 0.75rem;
+    user-select: none;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    box-shadow: 0 0 8px #f59e0b;
+   }
+   .rotulo {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #d6336c;
+    white-space: nowrap;
+   }
+   .conteiner-main {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+   }
+   .botao {
+    background: #d6336c;
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px #d6336c;
+    user-select: none;
+   }
+   .botao:hover,
+   .botao:focus {
+    background: #a82a56;
+    box-shadow: 0 0 15px #d6336c;
+    outline: none;
+   }
+   /* Flip animation for countdown numbers */
+   @keyframes flip {
+    0% {
+     transform: rotateX(0deg);
+    }
+    50% {
+     transform: rotateX(90deg);
+    }
+    100% {
+     transform: rotateX(0deg);
+    }
+   }
+   .numero {
+    display: inline-block;
+    perspective: 400px;
+   }
+   /* Responsive fixes */
+   @media (max-width: 640px) {
+    .contador {
+     gap: 1rem;
+    }
+    .numero {
+     font-size: 2.5rem;
+     width: 3.5rem;
+     height: 3.5rem;
+     line-height: 3.5rem;
+    }
+    .rotulo {
+     font-size: 0.75rem;
+    }
+    .supreme {
+     padding: 0.75rem;
+     margin: 0 1rem 1.5rem;
+    }
+   }
+   @media (max-width: 1024px) {
+    .grid-cols-4 {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+   }
   </style>
  </head>
  <body class="bg-pink-light text-gray-800">
   <!-- Header / Navbar -->
-  <header class="bg-yellow-light shadow-md fixed w-full z-30 border-b border-pink-300">
+  <header
+   class="bg-yellow-light shadow-md fixed w-full z-30 border-b border-pink-300"
+  >
    <div
     class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
    >
@@ -129,12 +243,12 @@
     >
    </nav>
   </header>
-  <main class="pt-20">
+  <main class="pt-20 px-4 sm:px-6 lg:px-8">
    <!-- Hero Section -->
-   <section class="relative bg-pink-light text-pink">
+   <section class="relative bg-pink-light text-pink rounded-b-3xl overflow-hidden">
     <img
      alt="Praia paradisíaca com mar azul cristalino, areia branca e palmeiras ao fundo sob céu azul claro"
-     class="w-full h-60 sm:h-96 object-cover brightness-90 rounded-b-3xl"
+     class="w-full h-60 sm:h-96 object-cover brightness-90"
      height="600"
      src="img/meu-amorzinho-01.jpg"
      width="1920"
@@ -154,13 +268,51 @@
    </section>
    <!-- Destinos Section -->
    <section
-    class="max-w-7xl mx-auto px-6 py-16 bg-yellow-light rounded-3xl shadow-lg mt-12"
+    class="max-w-7xl mx-auto px-0 sm:px-6 py-16 bg-yellow-light rounded-3xl shadow-lg mt-12"
     id="destinos"
    >
-    <h2 class="text-4xl font-bold text-center text-pink mb-12">
+    <div class="supreme">
+     <h1 class="text-2xl sm:text-3xl font-extrabold mb-4">
+      Contagem Regressiva até 28 de Maio de 2029
+     </h1>
+     <div
+      class="contador"
+      role="timer"
+      aria-live="polite"
+      aria-atomic="true"
+     >
+      <div class="tempo">
+       <div class="numero" id="dias" aria-label="Dias">00</div>
+       <div class="rotulo">Dias</div>
+      </div>
+      <div class="tempo">
+       <div class="numero" id="horas" aria-label="Horas">00</div>
+       <div class="rotulo">Horas</div>
+      </div>
+      <div class="tempo">
+       <div class="numero" id="minutos" aria-label="Minutos">00</div>
+       <div class="rotulo">Minutos</div>
+      </div>
+      <div class="tempo">
+       <div class="numero" id="segundos" aria-label="Segundos">00</div>
+       <div class="rotulo">Segundos</div>
+      </div>
+     </div>
+
+     <div class="conteiner-main">
+      <a href="carta.html"
+       ><button class="botao" type="button">Aniversário de 14 Anos</button></a
+      >
+      <a href="dia-dos-namorados-01.html"
+       ><button class="botao" type="button">Dia dos Namorados</button></a
+      >
+     </div>
+    </div>
+
+    <h2 class="text-4xl font-bold text-center text-pink mb-12 mt-12">
      De Mãos Dadas Pela Vida Inteira
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-0">
      <article
       class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition flex flex-col border-4 border-pink-300"
      >
@@ -183,6 +335,7 @@
         type="button"
         class="mt-6 bg-pink text-white font-semibold py-2 rounded-lg hover:bg-pink-600 transition btn-pink animate-btn"
        >
+        <p>Ler Mais</p>
        </button>
       </div>
      </article>
@@ -205,7 +358,12 @@
         parece um sonho. Me sinto o homem mais sortudo do mundo. Amo-te,
         pequena.
        </p>
-      
+       <button
+        type="button"
+        class="mt-6 bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn"
+       >
+        <p>Ler Mais</p>
+       </button>
       </div>
      </article>
      <article
@@ -220,10 +378,13 @@
       />
       <div class="p-6 flex-grow flex flex-col">
        <h3 class="text-xl font-bold text-pink mb-3">Sol Vermelho</h3>
-       <p class="text-gray-700 text-sm flex-grow">
-            Eu te amo...
-       </p>
-       
+       <p class="text-gray-700 text-sm flex-grow">Eu te amo...</p>
+       <button
+        type="button"
+        class="mt-6 bg-pink text-white font-semibold py-2 rounded-lg hover:bg-pink-600 transition btn-pink animate-btn"
+       >
+        <p>Ler Mais</p>
+       </button>
       </div>
      </article>
     </div>
@@ -237,6 +398,25 @@
     <p class="text-sm font-semibold">
      Eu te amo, meu amor, daqui até o fim dos tempos e além deles.
     </p>
+    <strong>Amor,</strong><br><br>
+
+  Sei que as coisas estão difíceis, mas, por favor, confie em mim. Nesse tipo de situação, eu realmente me preocupo com você além da conta. Às vezes, até acho que estou sendo chato com você nesse quesito, mas não posso fazer nada — só posso ser chato e tentar até entrar totalmente no seu núcleo.<br><br>
+
+  Porque é isso que se faz quando se ama alguém, e <strong>eu amo você do fundo do meu coração</strong>. Nada será capaz de mudar isso — nem as situações, nem o tempo, nem as pessoas.<br><br>
+
+  Só quero que pegue na minha mão e me deixe te acompanhar na jornada até o final. Quero te ajudar em cada passo.<br>
+  Você é importante pra mim. <strong>Tão importante que não gosto nem de imaginar como é a vida sem você.</strong><br>
+  Preferiria morrer se significasse não poder ter você. Você já se tornou uma parte de mim.<br><br>
+
+  Então, vou te ajudar a enxergar essa menina incrível, carinhosa, amorosa e safada, que eu enxergo.<br>
+  Não se deixe abalar por essas coisas negativas. Sei que às vezes é impossível segurar — então, quando for assim, apenas divida comigo. Te ajudarei a carregar, mesmo que o mundo desmorone, o espaço deixe de existir, o tempo entre em colapso e o vazio venha.<br><br>
+
+  Apenas lembre de uma coisa:<br>
+  <strong>Eu estarei lá ao seu lado.</strong><br><br>
+
+  <strong>Eu te amo, pequena.</strong><br>
+  Nos vemos no dia <strong>28/05/2029</strong>. Estarei lá por você.<br>
+  <strong>Amo-te.</strong>
    </div>
   </footer>
   <script>
@@ -266,6 +446,62 @@
      }
     });
    });
+
+   const destino = new Date("May 28, 2029 23:59:59").getTime();
+   const anteriores = {};
+
+   function animar(id, val) {
+    const el = document.getElementById(id);
+    if (anteriores[id] !== val) {
+     el.textContent = val.toString().padStart(2, "0");
+     el.style.animation = "none";
+     void el.offsetWidth;
+     el.style.animation = "flip 0.7s ease-in-out";
+     anteriores[id] = val;
+    }
+   }
+
+   function atualizar() {
+    const agora = Date.now();
+    const dif = destino - agora;
+
+    if (dif <= 0) {
+     document.querySelector(".contador").innerHTML =
+      "<div class='tempo'><div class='numero'>🎉</div><div class='rotulo'>Chegou!</div></div>";
+     clearInterval(timer);
+     return;
+    }
+
+    const dias = Math.floor(dif / 864e5);
+    const horas = Math.floor((dif % 864e5) / 36e5);
+    const minutos = Math.floor((dif % 36e5) / 6e4);
+    const segundos = Math.floor((dif % 6e4) / 1000);
+
+    animar("dias", dias);
+    animar("horas", horas);
+    animar("minutos", minutos);
+    animar("segundos", segundos);
+   }
+
+   const timer = setInterval(atualizar, 1000);
+   atualizar();
   </script>
+  <style>
+   @keyframes flip {
+    0% {
+     transform: rotateX(0deg);
+    }
+    50% {
+     transform: rotateX(90deg);
+    }
+    100% {
+     transform: rotateX(0deg);
+    }
+   }
+   .numero {
+    display: inline-block;
+    perspective: 400px;
+   }
+  </style>
  </body>
 </html>
