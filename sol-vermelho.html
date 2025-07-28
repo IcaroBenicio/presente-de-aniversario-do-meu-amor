@@ -5,37 +5,322 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sol Vermelho</title>
    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
   body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-color: #fff0f0; /* só pra dar um fundo */
+    background-color: #ecc206; /* só pra dar um fundo */
     font-size: 18px;
     justify-items: center;
+    padding: 10px;
   }
   .carta{
     max-width: 800px;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
+    margin-top: 100px;
   }
-  p{
+  .carta > p{
     text-align: justify;
     text-indent: 25px;
     font-family: 'Great Vibes', cursive;
     font-size: 28px;
+    margin-bottom: 15px;
   }
-  h1{
+  .titulo-carta{
     font-family: 'Great Vibes', cursive;
     text-align: center;
+    font-size: 32px;
+    text-shadow: 1px 1px #ec0606;
+    margin-bottom: 20px;
   }
+  /* Custom bounce animation for icons */
+    @keyframes bounce-slow {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .bounce-slow {
+      animation: bounce-slow 3s ease-in-out infinite;
+    }
+    /* Smooth fade-in for modal */
+    .fade-in {
+      animation: fadeIn 0.3s ease forwards;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
 </style>
-
+<script>
+    // Tailwind config to extend red color with #DC2626 as primary red
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primaryred: '#DC2626',
+            primaryredlight: '#F87171',
+            primaryreddark: '#B91C1C',
+          },
+          fontFamily: {
+            pacifico: ['Pacifico', 'cursive'],
+            roboto: ['Roboto', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
 </head>
 <body>
+
+    <header class="mb-10 text-center relative w-full max-w-7xl px-4">
+    <h1 style="color: rgb(255, 255, 255); margin-top: 50px;"
+      class="text-5xl font-pacifico text-primaryreddark mb-2 drop-shadow-md inline-flex items-center justify-center gap-3"
+    >
+      Meu querido sol vermelho
+      <i class="fas fa-heart text-primaryred text-4xl bounce-slow" aria-hidden="true"></i>
+    </h1>
+    <p class="text-primaryreddark text-lg max-w-md mx-auto" style="color: white;">
+      Que aquecerá eternamente a minha alma fria. Eu te amo.
+    </p>
+  </header>
+
+  <main
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl w-full px-4"
+  >
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Gatinho de Pelúcia"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Gatinho de Pelúcia"
+      data-desc="Um momento doce e aconchegante."
+      data-img="https://storage.googleapis.com/a1aa/image/23fcb0d3-d4a0-43a1-8898-67ad2524f58f.jpg"
+    >
+      <img
+        alt="Gatinho fofo de pelúcia sentado em um quarto decorado com flores e brinquedos"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/23fcb0d3-d4a0-43a1-8898-67ad2524f58f.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Gatinho de Pelúcia</h2>
+        <p class="text-primaryred text-sm">Um momento doce e aconchegante.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Urso com Laço"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Urso com Laço"
+      data-desc="Um abraço quentinho e cheio de amor."
+      data-img="https://storage.googleapis.com/a1aa/image/330562da-49b1-4bd0-44bd-640ec0880612.jpg"
+    >
+      <img
+        alt="Urso de pelúcia com laço rosa em um campo de flores silvestres"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/330562da-49b1-4bd0-44bd-640ec0880612.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Urso com Laço</h2>
+        <p class="text-primaryred text-sm">Um abraço quentinho e cheio de amor.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Flores na Janela"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Flores na Janela"
+      data-desc="Um toque de natureza e cor."
+      data-img="https://storage.googleapis.com/a1aa/image/58e58bd9-5fac-4287-6b42-4468f216c585.jpg"
+    >
+      <img
+        alt="Flores coloridas em vasos de cerâmica em uma janela ensolarada"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/58e58bd9-5fac-4287-6b42-4468f216c585.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Flores na Janela</h2>
+        <p class="text-primaryred text-sm">Um toque de natureza e cor.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Chá da Tarde"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Chá da Tarde"
+      data-desc="Momentos doces e aconchegantes."
+      data-img="https://storage.googleapis.com/a1aa/image/d639e7e0-5105-4573-8ced-0b5f8ac6ea75.jpg"
+    >
+      <img
+        alt="Chá da tarde com biscoitos decorados e xícara de chá em mesa de madeira"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/d639e7e0-5105-4573-8ced-0b5f8ac6ea75.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Chá da Tarde</h2>
+        <p class="text-primaryred text-sm">Momentos doces e aconchegantes.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Balões no Céu"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Balões no Céu"
+      data-desc="Alegria e leveza no ar."
+      data-img="https://storage.googleapis.com/a1aa/image/49f1af54-4f5e-4495-d7aa-fd49cc486dd9.jpg"
+    >
+      <img
+        alt="Balões coloridos flutuando em um céu azul claro com nuvens fofas"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/49f1af54-4f5e-4495-d7aa-fd49cc486dd9.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Balões no Céu</h2>
+        <p class="text-primaryred text-sm">Alegria e leveza no ar.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Gatinhos Brincando"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Gatinhos Brincando"
+      data-desc="Diversão e fofura garantidas."
+      data-img="https://storage.googleapis.com/a1aa/image/e07583b7-a625-4bef-40ed-102f5db47abc.jpg"
+    >
+      <img
+        alt="Gatinhos brincando em um tapete fofo com brinquedos coloridos"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/e07583b7-a625-4bef-40ed-102f5db47abc.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Gatinhos Brincando</h2>
+        <p class="text-primaryred text-sm">Diversão e fofura garantidas.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Cupcakes Fofos"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Cupcakes Fofos"
+      data-desc="Doces que encantam os olhos e o paladar."
+      data-img="https://storage.googleapis.com/a1aa/image/131eb828-7356-4ad7-fc6b-042862fcf8b2.jpg"
+    >
+      <img
+        alt="Cupcakes decorados com glacê rosa e granulados coloridos"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/131eb828-7356-4ad7-fc6b-042862fcf8b2.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Cupcakes Fofos</h2>
+        <p class="text-primaryred text-sm">Doces que encantam os olhos e o paladar.</p>
+      </div>
+    </div>
+
+    <div
+      tabindex="0"
+      role="button"
+      aria-label="Abrir foto Hora da Leitura"
+      class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-4 focus:ring-primaryredlight hover:scale-105 hover:shadow-2xl"
+      data-title="Hora da Leitura"
+      data-desc="Momentos de calma e inspiração."
+      data-img="https://storage.googleapis.com/a1aa/image/85887fa4-3fe5-43de-24f1-ecfabc94034f.jpg"
+    >
+      <img
+        alt="Livro aberto com ilustrações coloridas e uma xícara de café ao lado"
+        class="w-full h-64 object-cover"
+        height="400"
+        loading="lazy"
+        src="https://storage.googleapis.com/a1aa/image/85887fa4-3fe5-43de-24f1-ecfabc94034f.jpg"
+        width="400"
+      />
+      <div class="p-4 text-center">
+        <h2 class="text-primaryreddark font-semibold text-lg mb-1">Hora da Leitura</h2>
+        <p class="text-primaryred text-sm">Momentos de calma e inspiração.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div
+    id="modal"
+    class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div
+      class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl relative p-6"
+      tabindex="0"
+    >
+      <button
+        id="modalClose"
+        aria-label="Fechar modal"
+        class="absolute top-4 right-4 text-primaryreddark hover:text-primaryreddark/80 text-3xl focus:outline-none focus:ring-2 focus:ring-primaryredlight rounded"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <img
+        id="modalImage"
+        alt=""
+        class="w-full rounded-2xl mb-4 object-contain max-h-[60vh]"
+        src=""
+      />
+      <h3 id="modalTitle" class="text-3xl font-pacifico text-primaryreddark mb-2"></h3>
+      <p id="modalDesc" class="text-primaryred text-lg"></p>
+    </div>
+  </div>
+
+  
+
     <div class="carta">
-      <h1>
+      <h1 class="titulo-carta">
         Sol Vermelho
       </h1>
       <p>
@@ -114,13 +399,13 @@
         Foi por isso que eu perguntei sobre os seus planos, sobre o que você faria da vida: para alinhar os meus passos aos seus, para definir minha rota. Eu não me importo com o mundo. Eu não me importo com mais ninguém. O único ponto que importa para mim é estar ao seu lado.
       </p>
       <p>
-        Então, não me venha com essa de que cada um tem que seguir seu próprio caminho. O meu caminho é você. E é por isso que, até mesmo a faculdade que vou escolher, será baseada no que você me disse sobre os seus sonhos. Porque, sim, para mim o amor é suficiente pra manter a gente junto. Porque nós não caminhamos em direções opostas. Caminhamos lado a lado. E eu vou garantir que continue assim. Eu não acho que seja o medo do vazio, é simplesmente porque você sente o mesmo, se quiser posso relembrar com os áudios que mandava pra mim, no fundo aquela garotinha ainda existe, ela só está em uma tempestade que logo vai passar, isso só prova mais ainda que são só momentos difíceis.
+        Então, não me venha com essa de que cada um tem que seguir seu próprio caminho. O meu caminho é você. E é por isso que, até mesmo a faculdade que vou escolher, será baseada no que você me disse sobre os seus sonhos. Porque, sim, para mim o amor é suficiente pra manter a gente junto. Porque nós não caminhamos em direções opostas. Caminhamos lado a lado. E eu vou garantir que continue assim.
       </p>
       <p>
         Meu coração grita para estar ao seu lado, para te ajudar nessa mudança, acompanhar todo o processo e entender cada passo do que vai acontecer. Eu quero estar com você, minha pequena.
       </p>
       <p>
-        Se for possível,  eu  quero permanecer  ao seu lado durante essa mudança, apenas me avise. Eu te amo muito e quero passar por tudo isso com você. Nunca quero te deixar. Não quero sair na tempestade ou quando o mundo desabar. Quero estar aqui, te apoiando nos momentos difíceis. Quero que não tenha receio de escolher isso caso também queira. Me avise. Grite para mim. Eu te quero em todas as tempestades. Nunca saia do meu lado.
+        Eu  quero permanecer  ao seu lado durante essa mudança, apenas me avise. Eu te amo muito e quero passar por tudo isso com você. Nunca quero te deixar. Não quero sair na tempestade ou quando o mundo desabar. Quero estar aqui, te apoiando nos momentos difíceis. Quero que não tenha receio de escolher isso caso também queira. Me avise. Grite para mim. Eu te quero em todas as tempestades. Nunca saia do meu lado.
       </p>
       <p>
         Minha pequena lobisomem. Minha Amandinha. Minha princesa. Minha querida Amanda. Apenas seja você e me ame do seu jeito. Não tenha medo, não se culpe, não tenha vergonha. Apenas seja você mesma, como sempre falei. Eu vou te amar em todos os momentos, em todas as fases e em todas as tempestades. Porque estar longe de você, sem ver essas mudanças, é o que mais me machuca.
@@ -129,11 +414,13 @@
         Me deixa ser sua fundação, aquela que vai te segurar. Mas, independente do que aconteça eu sempre vou te amar: todos os lados, todas as imperfeições, todas as fases, todas as tempestades. Vou te amar por inteiro. E para sempre.
       </p>
       <p>
-        Amo-te, minha pequena.
+        <strong>Amo-te, minha pequena.</strong>
       </p>
       <p>
         — Ícaro Benício de Lima
       </p>
     </div>
+
+    
 </body>
 </html>
