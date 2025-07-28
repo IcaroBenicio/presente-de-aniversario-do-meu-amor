@@ -2,9 +2,7 @@
  <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>
-   Explora Viagens - Seu Próximo Destino
-  </title>
+  <title>Explora Viagens - Seu Próximo Destino</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link
    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap"
@@ -33,54 +31,6 @@
    .text-yellow {
     color: #f59e0b;
    }
-   /* Animations */
-   @keyframes fadeScalePink {
-    0% {
-     opacity: 0;
-     transform: scale(0.9) translateY(20px);
-     filter: drop-shadow(0 0 0 #d6336c);
-    }
-    50% {
-     opacity: 1;
-     transform: scale(1.05) translateY(0);
-     filter: drop-shadow(0 0 10px #d6336c);
-    }
-    100% {
-     opacity: 1;
-     transform: scale(1) translateY(0);
-     filter: drop-shadow(0 0 0 #d6336c);
-    }
-   }
-   @keyframes fadeScaleYellow {
-    0% {
-     opacity: 0;
-     transform: scale(0.9) translateY(20px);
-     filter: drop-shadow(0 0 0 #f59e0b);
-    }
-    50% {
-     opacity: 1;
-     transform: scale(1.05) translateY(0);
-     filter: drop-shadow(0 0 10px #f59e0b);
-    }
-    100% {
-     opacity: 1;
-     transform: scale(1) translateY(0);
-     filter: drop-shadow(0 0 0 #f59e0b);
-    }
-   }
-   .animate-fade-scale-pink {
-    animation: fadeScalePink 0.6s ease forwards;
-   }
-   .animate-fade-scale-yellow {
-    animation: fadeScaleYellow 0.6s ease forwards;
-   }
-   /* Button hover glow */
-   .btn-pink:hover {
-    box-shadow: 0 0 8px #d6336c;
-   }
-   .btn-yellow:hover {
-    box-shadow: 0 0 8px #f59e0b;
-   }
    /* Countdown styles */
    .supreme {
     max-width: 700px;
@@ -92,13 +42,15 @@
     text-align: center;
     color: #d6336c;
     font-weight: 700;
-   }
+    overflow-x: auto;
+  }
    .contador {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     margin: 1rem 0 1.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: max-content;
    }
    .tempo {
     display: flex;
@@ -107,19 +59,24 @@
     min-width: 60px;
    }
    .numero {
-    font-size: 3rem;
-    font-weight: 900;
-    background: #f59e0b;
-    color: #fff;
-    width: 4.5rem;
-    height: 4.5rem;
-    line-height: 4.5rem;
-    border-radius: 0.75rem;
-    user-select: none;
-    font-feature-settings: "tnum";
-    font-variant-numeric: tabular-nums;
-    box-shadow: 0 0 8px #f59e0b;
-   }
+  font-size: 3rem;
+  font-weight: 900;
+  background: #f59e0b;
+  color: #fff;
+  padding: 0 0.75rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 0.75rem;
+  user-select: none;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 8px #f59e0b;
+  min-width: 4.5rem;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+}
+
    .rotulo {
     margin-top: 0.25rem;
     font-size: 0.875rem;
@@ -170,24 +127,43 @@
     perspective: 400px;
    }
    /* Responsive fixes */
-   @media (max-width: 640px) {
-    .contador {
-     gap: 1rem;
-    }
-    .numero {
-     font-size: 2.5rem;
-     width: 3.5rem;
-     height: 3.5rem;
-     line-height: 3.5rem;
-    }
-    .rotulo {
-     font-size: 0.75rem;
-    }
-    .supreme {
-     padding: 0.75rem;
-     margin: 0 1rem 1.5rem;
-    }
-   }
+@media (max-width: 640px) {
+  .contador {
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    justify-content: center;
+  }
+
+  .numero {
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 0 0.4rem;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    min-width: 3.2rem;
+    text-align: center;
+    white-space: nowrap;
+    display: inline-block;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 6px #f59e0b;
+  }
+
+  .rotulo {
+    font-size: 0.7rem;
+  }
+
+  .tempo {
+    min-width: 64px;
+  }
+
+  .supreme {
+    padding: 0.75rem;
+    margin: 0 1rem 1.5rem;
+  }
+}
+
+
    @media (max-width: 1024px) {
     .grid-cols-4 {
      grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -271,7 +247,7 @@
     class="max-w-7xl mx-auto px-0 sm:px-6 py-16 bg-yellow-light rounded-3xl shadow-lg mt-12"
     id="destinos"
    >
-    <div class="supreme">
+    <div class="supreme" role="region" aria-label="Contagem regressiva">
      <h1 class="text-2xl sm:text-3xl font-extrabold mb-4">
       Contagem Regressiva até 28 de Maio de 2029
      </h1>
@@ -280,7 +256,8 @@
       role="timer"
       aria-live="polite"
       aria-atomic="true"
-     >
+      tabindex="0"
+    >
       <div class="tempo">
        <div class="numero" id="dias" aria-label="Dias">00</div>
        <div class="rotulo">Dias</div>
@@ -329,14 +306,14 @@
         28 de maio de 2025 — o primeiro de muitos aniversários ao teu lado.
         Feliz aniversário, meu amor. Te amo mais a cada dia.
        </p>
-       <a href="carta.html">
-           <button
-            type="button"
-            class="mt-6 bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn "
-           >
-            <p>Ler Mais</p>
+       <a href="carta.html" class="mt-6 inline-block w-full">
+         <button
+          type="button"
+          class="bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn w-full"
+         >
+          Ler Mais
+         </button>
        </a>
-       </button>
       </div>
      </article>
      <article
@@ -358,14 +335,14 @@
         parece um sonho. Me sinto o homem mais sortudo do mundo. Amo-te,
         pequena.
        </p>
-       <a href="dia-dos-namorados-01.html">
-           <button
-            type="button"
-            class="mt-6 bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn"
-           >
-            <p>Ler Mais</p>
+       <a href="dia-dos-namorados-01.html" class="mt-6 inline-block w-full">
+         <button
+          type="button"
+          class="bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn w-full"
+         >
+          Ler Mais
+         </button>
        </a>
-       </button>
       </div>
      </article>
      <article
@@ -381,12 +358,14 @@
       <div class="p-6 flex-grow flex flex-col">
        <h3 class="text-xl font-bold text-pink mb-3">Sol Vermelho</h3>
        <p class="text-gray-700 text-sm flex-grow">Eu te amo...</p>
-       <button
-        type="button"
-        class="mt-6 bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn"
-       >
-        <p>Ler Mais</p>
-       </button>
+       <a href="#" class="mt-6 inline-block w-full">
+         <button
+          type="button"
+          class="bg-yellow-500 text-white font-semibold py-2 rounded-lg hover:bg-yellow-600 transition btn-yellow animate-btn w-full"
+         >
+          Ler Mais
+         </button>
+       </a>
       </div>
      </article>
     </div>
@@ -400,25 +379,31 @@
     <p class="text-sm font-semibold">
      Eu te amo, meu amor, daqui até o fim dos tempos e além deles.
     </p>
-    <strong>Amor,</strong><br><br>
+    <strong class="mt-4 md:mt-0 max-w-xl text-center md:text-left">
+     Amor,<br /><br />
 
-  Sei que as coisas estão difíceis, mas, por favor, confie em mim. Nesse tipo de situação, eu realmente me preocupo com você além da conta. Às vezes, até acho que estou sendo chato com você nesse quesito, mas não posso fazer nada — só posso ser chato e tentar até entrar totalmente no seu núcleo.<br><br>
+     Sei que as coisas estão difíceis, mas, por favor, confie em mim. Nesse
+     tipo de situação, eu realmente me preocupo com você além da conta.
+     Às vezes, até acho que estou sendo chato com você nesse quesito, mas não
+     posso fazer nada — só posso ser chato e tentar até entrar totalmente no
+     seu núcleo.<br /><br />
 
-  Porque é isso que se faz quando se ama alguém, e <strong>eu amo você do fundo do meu coração</strong>. Nada será capaz de mudar isso — nem as situações, nem o tempo, nem as pessoas.<br><br>
+     Porque é isso que se faz quando se ama alguém, e <strong>eu amo você do fundo do meu coração</strong>. Nada será capaz de mudar isso — nem as situações, nem o tempo, nem as pessoas.<br /><br />
 
-  Só quero que pegue na minha mão e me deixe te acompanhar na jornada até o final. Quero te ajudar em cada passo.<br>
-  Você é importante pra mim. <strong>Tão importante que não gosto nem de imaginar como é a vida sem você.</strong><br>
-  Preferiria morrer se significasse não poder ter você. Você já se tornou uma parte de mim.<br><br>
+     Só quero que pegue na minha mão e me deixe te acompanhar na jornada até o final. Quero te ajudar em cada passo.<br />
+     Você é importante pra mim. <strong>Tão importante que não gosto nem de imaginar como é a vida sem você.</strong><br />
+     Preferiria morrer se significasse não poder ter você. Você já se tornou uma parte de mim.<br /><br />
 
-  Então, vou te ajudar a enxergar essa menina incrível, carinhosa, amorosa e safada, que eu enxergo.<br>
-  Não se deixe abalar por essas coisas negativas. Sei que às vezes é impossível segurar — então, quando for assim, apenas divida comigo. Te ajudarei a carregar, mesmo que o mundo desmorone, o espaço deixe de existir, o tempo entre em colapso e o vazio venha.<br><br>
+     Então, vou te ajudar a enxergar essa menina incrível, carinhosa, amorosa e safada, que eu enxergo.<br />
+     Não se deixe abalar por essas coisas negativas. Sei que às vezes é impossível segurar — então, quando for assim, apenas divida comigo. Te ajudarei a carregar, mesmo que o mundo desmorone, o espaço deixe de existir, o tempo entre em colapso e o vazio venha.<br /><br />
 
-  Apenas lembre de uma coisa:<br>
-  <strong>Eu estarei lá ao seu lado.</strong><br><br>
+     Apenas lembre de uma coisa:<br />
+     <strong>Eu estarei lá ao seu lado.</strong><br /><br />
 
-  <strong>Eu te amo, pequena.</strong><br>
-  Nos vemos no dia <strong>28/05/2029</strong>. Estarei lá por você.<br>
-  <strong>Amo-te.</strong>
+     <strong>Eu te amo, pequena.</strong><br />
+     Nos vemos no dia <strong>28/05/2029</strong>. Estarei lá por você.<br />
+     <strong>Amo-te.</strong>
+    </strong>
    </div>
   </footer>
   <script>
